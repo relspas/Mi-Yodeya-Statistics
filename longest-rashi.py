@@ -18,13 +18,11 @@ for book in books:
     for chapter_index, chapter in enumerate(text):
         for verse_index, verse in enumerate(chapter):
             for comment_index, comment in enumerate(verse):
-                print(chapter_index,verse_index,comment_index)
                 # Remove tags and extra whitespace
                 clean_comment = comment.replace("<b>", "").replace("</b>", "").strip()
                 word_count = len(clean_comment.split())
 
                 if word_count > longest_rashi["word_count"]:
-                    print("longest",word_count)
                     longest_rashi = {
                         "book": book,
                         "ref": f"{book} {chapter_index+1}:{verse_index+1} (Comment {comment_index+1})",
